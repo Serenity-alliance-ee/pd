@@ -34,10 +34,13 @@ class pd:
             self.sync()
 
     def __getitem__(self, key):
-        return self._dict[key]
+        if key in self.keys():
+            return self._dict[key]
+        else:
+            return None
 
-    def __delitem__(self, k):
-        del(self._dict[k])
+    def __delitem__(self, key):
+        del(self._dict[key])
 
     def __str__(self):
         return str(self._dict)
